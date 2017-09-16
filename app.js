@@ -6,7 +6,8 @@ var moment = require("moment");
 var express = require("express");
 var app = express();
 
-app.set("view engine",'html');
+app.set("view engine",'ejs');
+app.engine('.html', ejs.__express);
 app.set("views",__dirname+"/views");
 app.use(express.static(__dirname));
 
