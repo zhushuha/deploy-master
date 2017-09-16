@@ -44,14 +44,14 @@
  <script>
  var siteUrl = 'http://gm.eloeg.wang:10081/';
  $('.deploy').click(function(){
-    $(this).attr('disabled', true).text('构建中...');
+    $('.deploy').attr('disabled', true).text('构建中...');
     $.get(
     	siteUrl, 
     	{
     		cmd : 'deploy-app'
     	},
     	function(rep){
-            $(this).attr('disabled', false).text('构建');
+            $('.deploy').attr('disabled', false).text('构建');
             if (rep.code == 200) {
                 $('.console .gridtable').prepend(`<tr><td>` + rep.output.replace(/\n/g, '<br>') + `</td><td>` + rep.time + `</td>></tr>`);
             }
