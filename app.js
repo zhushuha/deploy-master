@@ -26,7 +26,8 @@ app.get("/", (request, response) => {
     response.header('Access-Control-Allow-Headers', 'Content-Type');
 
 	var time = moment().format("YYYY-MM-DD HH:mm:ss");
-	swich(request.query.cmd) {
+	swich(request.query.cmd) 
+	{
 		case 'deploy-app':
 		process.exec('git pull',
 		 function (error, stdout, stderr) {
