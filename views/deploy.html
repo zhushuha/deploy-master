@@ -50,7 +50,9 @@
 				cmd : 'deploy-app'
 			},
 			function(rep){
-				$('.console .gridtable').prepend(`<tr><td>` + rep.output.replace(/\n/g, '<br>') + `</td><td>` + rep.time + `</td>></tr>`);
+        if (rep.code == 200) {
+            $('.console .gridtable').prepend(`<tr><td>` + rep.output.replace(/\n/g, '<br>') + `</td><td>` + rep.time + `</td>></tr>`);
+        }
 			},
 			'json'
 		);
@@ -58,5 +60,4 @@
 
  </script>
  </body>
- 
 </html>

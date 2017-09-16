@@ -26,7 +26,8 @@ app.get("/", (request, response) => {
     response.header('Access-Control-Allow-Headers', 'Content-Type');
 
 	var time = moment().format("YYYY-MM-DD HH:mm:ss");
-	if(request.query.cmd == 'deploy-app') {
+	swich(request.query.cmd) {
+		case 'deploy-app':
 		process.exec('git pull',
 		 function (error, stdout, stderr) {
 			if (error !== null) {
@@ -34,6 +35,9 @@ app.get("/", (request, response) => {
 			}
 			response.send(JSON.stringify({code : 200, time : time, output : stdout}));
 		});
+		break;
+		default:
+		response.send(JSON.stringify({code : -200, time : time}));
 	}
 });
 
