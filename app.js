@@ -6,7 +6,16 @@ var moment = require("moment");
 var express = require("express");
 var app = express();
 
+app.set("view engine",'html');
+app.set("views",__dirname+"/views");
+app.use(express.static(__dirname));
 
+// render front side
+app.get("/", (request, response) => {
+	response.render('deploy.html');
+});
+
+// api
 app.get("/", (request, response) => {
 	// allow all
 	response.header("Access-Control-Allow-Origin", "*");
