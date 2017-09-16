@@ -8,6 +8,12 @@ var app = express();
 
 
 app.get("/", (request, response) => {
+	// allow all
+	response.header("Access-Control-Allow-Origin", "*");
+    response.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    response.header("Access-Control-Allow-Headers", "X-Requested-With");
+    response.header('Access-Control-Allow-Headers', 'Content-Type');
+
 	var time = moment().format("YYYY-MM-DD HH:mm:ss");
 	if(request.params.cmd == 'deploy-app') {
 		process.exec('ls -l',
