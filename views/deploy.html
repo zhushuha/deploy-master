@@ -50,7 +50,7 @@ table.gridtable td {
 				cmd : 'deploy-app'
 			},
 			function(rep){
-				$('.console .gridtable').append(`<tr><td>` + rep.output.replace(/\n/g, '<br>') + `</td><td>` + rep.time + `</td>></tr>`);
+				$('.console .gridtable').prepend(`<tr><td>` + rep.output.replace(/\n/g, '<br>') + `</td><td>` + rep.time + `</td>></tr>`);
 			},
 			'json'
 		);
