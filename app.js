@@ -5,6 +5,7 @@ var process = require('child_process');
 var moment = require("moment");
 var express = require("express");
 var app = express();
+var ejs = require('ejs');
 
 app.set("view engine",'ejs');
 app.engine('.html', ejs.__express);
