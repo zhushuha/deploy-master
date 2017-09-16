@@ -15,7 +15,7 @@ app.get("/", (request, response) => {
     response.header('Access-Control-Allow-Headers', 'Content-Type');
 
 	var time = moment().format("YYYY-MM-DD HH:mm:ss");
-	if(request.params.cmd == 'deploy-app') {
+	if(request.query.cmd == 'deploy-app') {
 		process.exec('ls -l',
 		 function (error, stdout, stderr) {
 			if (error !== null) {
