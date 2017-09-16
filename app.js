@@ -27,7 +27,7 @@ app.get("/", (request, response) => {
 
 	var time = moment().format("YYYY-MM-DD HH:mm:ss");
 	if(request.query.cmd == 'deploy-app') {
-		process.exec('ls -l',
+		process.exec('git pull',
 		 function (error, stdout, stderr) {
 			if (error !== null) {
 			  console.log('exec error: ' + error);
