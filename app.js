@@ -13,7 +13,7 @@ app.set("views",__dirname+"/views");
 app.use(express.static(__dirname));
 
 // render front side
-app.get("/", (request, response) => {
+app.get("/deploy", (request, response) => {
 	response.render('deploy.html');
 });
 
